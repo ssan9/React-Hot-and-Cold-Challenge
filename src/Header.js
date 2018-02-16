@@ -1,21 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-import Nav from './nav';
+import Nav from './Nav';
 
-import './header.css';
+// import './header.css';
 
-export class Header extends React.Component {
-	render() {
+export default function Header(props) {
 		return (
-			<Nav 
-				// onGenerateAuralUpdate={() => props.onGenerateAuralUpdate()}
-        		onRestartGame={() => props.onRestartGame()} why
-      		/>
-				<header>
-					<h1>HOT or COLD</h1>
-				</header>	
-			);
-	}
-
+			<div>
+				<Nav 
+					// onGenerateAuralUpdate={() => props.onGenerateAuralUpdate()}
+	        		onRestartGame={() => props.onRestartGame()} /*why*/
+	      		/>
+					<header>
+						<h1>HOT or COLD</h1>
+					</header>	
+			</div>		
+		);
 }

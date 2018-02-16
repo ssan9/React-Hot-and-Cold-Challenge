@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class FeedbackForm extends React.Component {
+export default class FeedbackForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -9,7 +9,7 @@ export class FeedbackForm extends React.Component {
 
   handleChange(e) {
     const name = e.target.value;
-    this.props.onChange(feedback);
+    this.props.onChange(name);
   }
 
   render() {

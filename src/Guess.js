@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import './Guess.css';
-import Header from './header';
-import FeedbackForm from './feedback-form.css';
-import SubmitForm from './Hello';
-import InfoSection from './info-section';
+// import './Guess.css';
+import Header from './Header';
+import FeedbackForm from './Feedback-Form';
+import SubmitForm from './SubmitForm';
+import InfoSection from './InfoSection';
 
 export default class Guess extends React.Component {
   constructor(props) {
@@ -45,19 +45,19 @@ let feedback;
 changeGuess(newGuess) {
     this.setState ({
       guess: newGuess
-    })
+    });
   }
 
 changeFeedback(newFeedback) {
     this.setState({
       feedback: newFeedback
-    })
+    });
   }
 
   changeCount(newCount) {
     this.setState ({
       count: newCount
-    })
+    });
   }
 
   render() {
@@ -68,7 +68,7 @@ changeFeedback(newFeedback) {
           <SubmitForm value={this.state.guess} onChange={this.changeGuess}  />
           <SubmitForm value={this.state.count} onChange={this.changeCount}  />  
       </div>  
-    )
+    );
   }
 
 }

@@ -1,6 +1,7 @@
-import './nav.css';
-export class Nav extends React.Component {
-	render() {
+import React from 'react';
+// import './nav.css';
+
+export default function Nav(props) {
 		return (
 			<nav>
 				<ul className="navigation">
@@ -20,5 +21,4 @@ export class Nav extends React.Component {
 			</nav>
 
 		)
-	}
 }				
