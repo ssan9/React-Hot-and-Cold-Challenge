@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 // import './Guess.css';
-import Header from './Header';
-import FeedbackForm from './Feedback-Form';
-import SubmitForm from './SubmitForm';
-import InfoSection from './InfoSection';
+import Header from "./Header";
+import FeedbackForm from "./FeedbackForm";
+import SubmitForm from "./SubmitForm";
+import InfoSection from "./InfoSection";
 
 export default class Guess extends React.Component {
   constructor(props) {
@@ -15,47 +15,47 @@ export default class Guess extends React.Component {
       correctAnswer: Math.round(Math.random() * 100) + 1
     };
 
-      this.changeGuess = this.changeGuess.bind(this);
-      this.changeFeedback = this.changeFeedback.bind(this);
-      this.changeCount = this.changeCount.bind(this);
-    }
-  
-makeGuess(guess) {
+    this.changeGuess = this.changeGuess.bind(this);
+    this.changeFeedback = this.changeFeedback.bind(this);
+    this.changeCount = this.changeCount.bind(this);
+  }
+
+  makeGuess(guess) {
     guess = parseInt(guess, 10);
     if (isNaN(guess)) {
-      this.setState({ feedback: 'Please enter a valid number' });
+      this.setState({ feedback: "Please enter a valid number" });
       return;
     }
 
-const difference = Math.abs(guess - this.state.correctAnswer);
+    const difference = Math.abs(guess - this.state.correctAnswer);
 
-let feedback;
+    let feedback;
     if (difference >= 50) {
-      feedback = 'You\'re Ice Cold...';
+      feedback = "You're Ice Cold...";
     } else if (difference >= 30) {
-      feedback = 'You\'re Cold...';
+      feedback = "You're Cold...";
     } else if (difference >= 10) {
-      feedback = 'You\'re Warm.';
+      feedback = "You're Warm.";
     } else if (difference >= 1) {
-      feedback = 'You\'re Hot!';
+      feedback = "You're Hot!";
     } else {
-      feedback = 'You got it!';
+      feedback = "You got it!";
     }
-
-changeGuess(newGuess) {
-    this.setState ({
+  }
+  changeGuess(newGuess) {
+    this.setState({
       guess: newGuess
     });
   }
 
-changeFeedback(newFeedback) {
+  changeFeedback(newFeedback) {
     this.setState({
       feedback: newFeedback
     });
   }
 
   changeCount(newCount) {
-    this.setState ({
+    this.setState({
       count: newCount
     });
   }
@@ -64,11 +64,10 @@ changeFeedback(newFeedback) {
     return (
       <div>
         <header />
-          <FeedbackForm onClick={this.changeFeedback} />
-          <SubmitForm value={this.state.guess} onChange={this.changeGuess}  />
-          <SubmitForm value={this.state.count} onChange={this.changeCount}  />  
-      </div>  
+        <FeedbackForm onClick={this.changeFeedback} />
+        <SubmitForm value={this.state.guess} onChange={this.changeGuess} />
+        <SubmitForm value={this.state.count} onChange={this.changeCount} />
+      </div>
     );
   }
-
 }
