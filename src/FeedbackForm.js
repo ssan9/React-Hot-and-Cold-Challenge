@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 // export default class FeedbackForm extends React.Component {
 //   constructor(props) {
@@ -28,19 +28,17 @@ import React from 'react';
 //   }
 // }
 
-
 export default function Validation(props) {
-      return(
-        <div className="Validation">
-          <p onClick={props.click}>{props.validationMessage}</p>
-        </div>  
-      );
+  return (
+    <div className="Validation">
+      <p onClick={props.click}>{props.validationMessage}</p>
+    </div>
+  );
 }
 
+// const difference = Math.abs(guess - this.state.correctAnswer);
 
-    // const difference = Math.abs(guess - this.state.correctAnswer);
-
-// let validationMessage; 
+// let validationMessage;
 
 //       if(difference >= 50) {
 //         validationMessage = 'Ice Cold';

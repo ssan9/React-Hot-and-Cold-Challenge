@@ -23,9 +23,7 @@ export default function SubmitForm(props) {
   );
 }
 
- // onChange={e => props.onChange(e.target.value)}
- //        onChange={props.changed}
- //        onClick={props.count}
- //      />
-
- 
+// onChange={e => props.onChange(e.target.value)}
+//        onChange={props.changed}
+//        onClick={props.count}
+//      />
