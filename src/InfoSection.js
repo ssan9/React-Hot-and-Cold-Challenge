@@ -2,9 +2,16 @@ import React from "react";
 
 // import './info-section.css';
 
-export default function InfoSection() {
+export default function InfoSection(props) {
   return (
     <section id="what" tabIndex="-1">
+      <button
+        onClick={e => props.displayHelp(false)}
+        className="what"
+        aria-label="How to play"
+      >
+        X
+      </button>
       <h2>What do I do?</h2>
       <p>
         This is a Hot or Cold Number Guessing Game. The game goes like this:

@@ -6,9 +6,13 @@ export default function Nav(props) {
     <nav>
       <ul className="navigation">
         <li>
-          <a href="#what" className="what" aria-label="How to play">
+          <button
+            onClick={e => props.displayHelp(true)}
+            className="what"
+            aria-label="How to play"
+          >
             WHAT?
-          </a>
+          </button>
         </li>
         <li>
           <a

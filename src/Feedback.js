@@ -28,10 +28,10 @@ import React from "react";
 //   }
 // }
 
-export default function Validation(props) {
+export default function Feedback(props) {
   return (
-    <div className="Validation">
-      <p onClick={props.click}>{props.validationMessage}</p>
+    <div className="feedback">
+      <p onClick={props.click}>{props.feedbackMessage}</p>
     </div>
   );
 }

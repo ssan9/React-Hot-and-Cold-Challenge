@@ -7,7 +7,10 @@ import Nav from "./Nav";
 export default function Header(props) {
   return (
     <div>
-      <Nav onRestartGame={() => props.onRestartGame()} /*why*/ />
+      <Nav
+        displayHelp={props.displayHelp}
+        onRestartGame={() => props.onRestartGame()} /*why*/
+      />
       <header>
         <h1>HOT or COLD</h1>
       </header>

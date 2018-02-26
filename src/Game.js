@@ -1,31 +1,26 @@
 import React, { Component } from "react";
 // import './Guess.css';
 import Header from "./Header";
-import Validation from "./FeedbackForm";
-import SubmitForm from "./SubmitForm";
+import Feedback from "./Feedback";
+import GuessForm from "./GuessForm";
 import InfoSection from "./InfoSection";
 
 export default class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentGuess: 0,
-      guess: [],
-      currentCount: 0,
+      displayHelp: false,
+      guesses: [34, 43],
       correctAnswer: Math.round(Math.random() * 100) + 1
     };
 
-    this.changeGuess = this.changeGuess.bind(this);
+    this.newGuess = this.newGuess.bind(this);
     this.changeFeedback = this.changeFeedback.bind(this);
     this.changeCount = this.changeCount.bind(this);
   }
 
   makeGuess(guess) {
     guess = parseInt(guess, 10);
-    if (isNaN(guess)) {
-      this.setState({ feedback: "Please enter a valid number" });
-      return;
-    }
 
     const difference = Math.abs(guess - this.state.correctAnswer);
 
@@ -56,11 +51,6 @@ export default class Game extends React.Component {
       validationMessage = "You got it right!";
     }
   }
-  // changeGuess(event) {
-  //     this.setState({
-  //       currentGuess: event.target.value
-  //     });
-  //   }
 
   //   changeFeedback(newValidationMessage) {
   //     this.setState({
@@ -86,11 +76,6 @@ export default class Game extends React.Component {
   //     );
   //   }
   // }
-  changeGuess(newGuess) {
-    this.setState({
-      guess: newGuess
-    });
-  }
 
   changeFeedback(newValidationMessage) {
     this.setState({
@@ -103,19 +88,31 @@ export default class Game extends React.Component {
       count: newCount
     });
   }
+  displayHelp(display) {
+    this.setState({
+      displayHelp: display
+    });
+  }
+
+  newGuess(newGuess) {
+    this.setState({
+      guesses: [...this.state.guesses, newGuess]
+    });
+  }
 
   render() {
     return (
       <div>
-        <Header />
-        <Validation onClick={this.changeFeedback} />
-        <SubmitForm
-          value={this.state.guess}
-          onChange={this.changeGuess}
-          value={this.state.count}
-          onChange={this.changeCount}
+        <Header displayHelp={display => this.displayHelp(display)} />
+        <Feedback
+          feedbackMessage={"FEEDBACK_HERE"}
+          onClick={this.changeFeedback}
         />
-        <InfoSection />
+        <GuessForm count={this.state.guesses.length} newGuess={this.newGuess} />
+
+        {this.state.displayHelp ? (
+          <InfoSection displayHelp={display => this.displayHelp(display)} />
+        ) : null}
       </div>
     );
   }
