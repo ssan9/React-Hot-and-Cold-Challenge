@@ -16,8 +16,16 @@ export default function SubmitForm(props) {
         placeholder="Enter Your Guess"
         onChange={e => props.onChange(e.target.value)}
       />
+
       <button type="submit">Guess</button>
       <h4>Guess #{props.count}!</h4>
     </form>
   );
 }
+
+ // onChange={e => props.onChange(e.target.value)}
+ //        onChange={props.changed}
+ //        onClick={props.count}
+ //      />
+
+ 
