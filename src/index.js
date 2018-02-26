@@ -1,8 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import Guess from './Guess';
-import registerServiceWorker from './registerServiceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import Game from "./Game";
+import registerServiceWorker from "./registerServiceWorker";
 
-ReactDOM.render(<Guess />, document.getElementById('root'));
+ReactDOM.render(<Game />, document.getElementById("root"));
 registerServiceWorker();
