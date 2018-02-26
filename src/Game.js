@@ -9,6 +9,7 @@ export default class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      feedback: "Make a guess!",
       displayHelp: false,
       guesses: [34, 43],
       correctAnswer: Math.round(Math.random() * 100) + 1
@@ -16,66 +17,7 @@ export default class Game extends React.Component {
 
     this.newGuess = this.newGuess.bind(this);
     this.changeFeedback = this.changeFeedback.bind(this);
-    this.changeCount = this.changeCount.bind(this);
   }
-
-  makeGuess(guess) {
-    guess = parseInt(guess, 10);
-
-    const difference = Math.abs(guess - this.state.correctAnswer);
-
-    //   let feedback;
-    //   if (difference >= 50) {
-    //     feedback = "You're Ice Cold...";
-    //   } else if (difference >= 30) {
-    //     feedback = "You're Cold...";
-    //   } else if (difference >= 10) {
-    //     feedback = "You're Warm.";
-    //   } else if (difference >= 1) {
-    //     feedback = "You're Hot!";
-    //   } else {
-    //     feedback = "You got it!";
-    //   }
-    // }
-    let validationMessage;
-
-    if (difference >= 50) {
-      validationMessage = "Ice Cold";
-    } else if (difference >= 30) {
-      validationMessage = "Cold";
-    } else if (difference >= 10) {
-      validationMessage = "Kinda Hot";
-    } else if (difference >= 1) {
-      validationMessage = "Hot";
-    } else {
-      validationMessage = "You got it right!";
-    }
-  }
-
-  //   changeFeedback(newValidationMessage) {
-  //     this.setState({
-  //       validationMessage: newValidationMessage
-  //     });
-  //   }
-
-  //   changeCount(newCount) {
-  //     this.setState({
-  //       currentCount: newCount
-  //     });
-  //   }
-
-  //   render() {
-  //     return (
-  //       <div>
-  //         <Header />
-  //         <Validation onClick={this.changeFeedback} />
-  //         <SubmitForm value={this.state.currentGuess} changed={this.changeGuess}
-  //                      value={this.state.currentCount} click={this.changeCount} />
-  //         <InfoSection />
-  //       </div>
-  //     );
-  //   }
-  // }
 
   changeFeedback(newValidationMessage) {
     this.setState({
@@ -83,11 +25,6 @@ export default class Game extends React.Component {
     });
   }
 
-  changeCount(newCount) {
-    this.setState({
-      count: newCount
-    });
-  }
   displayHelp(display) {
     this.setState({
       displayHelp: display
@@ -95,8 +32,27 @@ export default class Game extends React.Component {
   }
 
   newGuess(newGuess) {
+    var guessesCopy = [...this.state.guesses];
+    guessesCopy.push(newGuess);
+
+    const difference = Math.abs(newGuess - this.state.correctAnswer);
+
+    let feedback;
+    if (difference >= 50) {
+      feedback = "You're Ice Cold...";
+    } else if (difference >= 30) {
+      feedback = "You're Cold...";
+    } else if (difference >= 10) {
+      feedback = "You're Warm.";
+    } else if (difference >= 1) {
+      feedback = "You're Hot!";
+    } else {
+      feedback = "You got it!";
+    }
+
     this.setState({
-      guesses: [...this.state.guesses, newGuess]
+      guesses: guessesCopy,
+      feedback: feedback
     });
   }
 
@@ -105,7 +61,7 @@ export default class Game extends React.Component {
       <div>
         <Header displayHelp={display => this.displayHelp(display)} />
         <Feedback
-          feedbackMessage={"FEEDBACK_HERE"}
+          feedbackMessage={this.state.feedback}
           onClick={this.changeFeedback}
         />
         <GuessForm count={this.state.guesses.length} newGuess={this.newGuess} />
