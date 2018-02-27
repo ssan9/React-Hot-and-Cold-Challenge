@@ -1,9 +1,9 @@
 import React from "react";
-// import './nav.css';
+import './Nav.css';
 
 export default function Nav(props) {
   return (
-    <nav>
+    <nav className="nav">
       <ul className="navigation">
         <li>
           <button
@@ -15,14 +15,14 @@ export default function Nav(props) {
           </button>
         </li>
         <li>
-          <a
+          <button
             href="#start"
             className="new"
             aria-label="Start a new game"
-            onClick={() => props.onRestartGame()}
+            onClick={() => props.restartGame()}
           >
             +NEW GAME
-          </a>
+          </button>
         </li>
       </ul>
     </nav>

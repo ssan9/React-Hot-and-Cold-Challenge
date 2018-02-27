@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import './Guess.css';
+import './Game.css';
 import Header from "./Header";
 import Feedback from "./Feedback";
 import GuessForm from "./GuessForm";
@@ -11,19 +11,20 @@ export default class Game extends React.Component {
     this.state = {
       feedback: "Make a guess!",
       displayHelp: false,
-      guesses: [34, 43],
+      guesses: [],
       correctAnswer: Math.round(Math.random() * 100) + 1
     };
 
     this.newGuess = this.newGuess.bind(this);
-    this.changeFeedback = this.changeFeedback.bind(this);
+    // this.changeFeedback = this.changeFeedback.bind(this);
+    // this.displayHelp = this.displayHelp.bind(this) this can be used in place of arrow functions below
   }
 
-  changeFeedback(newValidationMessage) {
-    this.setState({
-      validationMessage: newValidationMessage
-    });
-  }
+  // changeFeedback(newValidationMessage) {
+  //   this.setState({
+  //     validationMessage: newValidationMessage
+  //   });
+  // }
 
   displayHelp(display) {
     this.setState({
@@ -31,10 +32,18 @@ export default class Game extends React.Component {
     });
   }
 
-  newGuess(newGuess) {
-    var guessesCopy = [...this.state.guesses];
-    guessesCopy.push(newGuess);
+  restartGame() {
+    this.setState ({
+      guesses: [],
+      feedback: "Make a guess!",
+      correctAnswer: Math.floor(Math.random()*100) + 1
+    });
+  }
 
+  newGuess(newGuess) {
+    var guessesCopy = [...this.state.guesses]; //add a new guess in an array of old guesses
+    guessesCopy.push(newGuess);
+      // or -> guessCopy = [...this.state.guesses, newGuess]
     const difference = Math.abs(newGuess - this.state.correctAnswer);
 
     let feedback;
@@ -58,11 +67,12 @@ export default class Game extends React.Component {
 
   render() {
     return (
-      <div>
-        <Header displayHelp={display => this.displayHelp(display)} />
-        <Feedback
+      <div className="game">
+        <Header className="form-header" displayHelp={display => this.displayHelp(display)} 
+                restartGame={() => this.restartGame()}/>
+        <Feedback className="feedback"
           feedbackMessage={this.state.feedback}
-          onClick={this.changeFeedback}
+          // onClick={this.changeFeedback}
         />
         <GuessForm count={this.state.guesses.length} newGuess={this.newGuess} />
 

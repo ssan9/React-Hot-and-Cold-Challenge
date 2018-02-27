@@ -2,16 +2,16 @@ import React from "react";
 
 import Nav from "./Nav";
 
-// import './header.css';
+import './Header.css';
 
 export default function Header(props) {
   return (
     <div>
       <Nav
         displayHelp={props.displayHelp}
-        onRestartGame={() => props.onRestartGame()} /*why*/
+        restartGame={props.restartGame} /*why*/
       />
-      <header>
+      <header className="header">
         <h1>HOT or COLD</h1>
       </header>
     </div>

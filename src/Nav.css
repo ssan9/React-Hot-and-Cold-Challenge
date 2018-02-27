@@ -1,0 +1,39 @@
+.nav {
+	box-sizing: border-box;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	z-index: 1;
+}
+ul li{
+	list-style: none;
+	display: inline-block;
+	font-size: 18px;
+	clear: both;
+	margin: 0;
+	padding: 0;
+}
+
+li button {
+	font-size: 23px;
+	font-weight: 600;
+}
+.what {
+	border: none;
+	background-color: #1F253D;
+	color: white;
+	display: inline-block;
+	position: absolute;
+}
+
+.new {
+	border: none;
+	text-align: right;
+	color: white;
+	text-decoration: none;
+	background-color: #1F253D;
+	display: inline-block;
+	position: absolute;
+	left: 90%; /*why i couldn't use float over here?*/
+}
+
