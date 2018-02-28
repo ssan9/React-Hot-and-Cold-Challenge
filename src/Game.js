@@ -72,13 +72,16 @@ export default class Game extends React.Component {
                 restartGame={() => this.restartGame()}/>
         <Feedback className="feedback"
           feedbackMessage={this.state.feedback}
-          // onClick={this.changeFeedback}
         />
-        <GuessForm count={this.state.guesses.length} newGuess={this.newGuess} />
+        <GuessForm count={this.state.guesses.length}
+                   newGuess={this.newGuess}
+                   guesses={this.state.guesses} />
+                    
 
         {this.state.displayHelp ? (
           <InfoSection displayHelp={display => this.displayHelp(display)} />
         ) : null}
+
       </div>
     );
   }
