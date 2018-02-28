@@ -1,6 +1,6 @@
 import React from "react";
-
 import "./GuessForm.css";
+import GuessesFeedback from "./GuessesFeedback";
 
 export default class GuessForm extends React.Component {
   constructor(props) {
@@ -13,25 +13,12 @@ export default class GuessForm extends React.Component {
   }
 
   currentGuess(event) {
-    console.log(this.input);
     this.setState({
       guess: event.target.value
     });
   }
 
-  // onSubmit(event) {
-  //     event.preventDefault();
-
-  //     if (this.props.newGuess) {
-  //       const value = this.input.value;
-  //       this.props.newGuess(value);
-  //     }
-  //     this.input.value = '';
-  //     this.input.focus();
-  //   }
-
   render() {
-    const guessesArray = this.props.guesses.map((guess, index) => <span key={index}>{guess} </span>);
     return (
       <form
         className="guess-form"
@@ -53,22 +40,15 @@ export default class GuessForm extends React.Component {
           aria-labelledby="number-guess"
           required
           placeholder="Enter Your Guess"
-          // onChange={e => this.setState({ guess: Number(e.target.value) })}
-          // ref={(input) => this.input = input}
-          onChange={this.currentGuess} // is it correct?
+          onChange={this.currentGuess}
         />
 
         <button type="submit" className="guess-button">
           Guess
         </button>
-        <h4 className="count">Guess #{this.props.count}!</h4>
-        <div className="green">{guessesArray} </div>
+
+        <GuessesFeedback guesses={this.props.guesses} />
       </form>
     );
   }
 }
-
-// onChange={e => props.onChange(e.target.value)}
-//        onChange={props.changed}
-//        onClick={props.count}
-//      />

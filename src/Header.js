@@ -2,11 +2,11 @@ import React from "react";
 
 import Nav from "./Nav";
 
-import './Header.css';
+import "./Header.css";
 
 export default function Header(props) {
   return (
-    <div>
+    <div className="form-header">
       <Nav
         displayHelp={props.displayHelp}
         restartGame={props.restartGame} /*why*/

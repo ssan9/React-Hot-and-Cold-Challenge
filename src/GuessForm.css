@@ -1,49 +1,34 @@
 .guess-form {
-	text-align: center;
-	margin: 0 auto;
-	display: block;
-	background-color: #40496f;
-	width: 24.2%;
-	padding-top: 5px;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  background-color: #40496f;
+  width: 24.2%;
+  padding-top: 5px;
 }
 
 .enter-guess {
-	text-align: center;
-	background-color: #50597b;
-	display: block;
-	margin: 5% auto;
-	width: 80%;
-	padding: 8px;
-	font-size: 25px;
-	border-radius: 4px;
-	color: white;
-	border: 1px solid black;
+  text-align: center;
+  background-color: #50597b;
+  display: block;
+  margin: 5% auto;
+  width: 80%;
+  padding: 8px;
+  font-size: 25px;
+  border-radius: 4px;
+  color: white;
+  border: 1px solid black;
 }
 
 .guess-button {
-	background-color: #1F253D;
-	text-align: center;
-	margin: 0 auto;
-	width: 84%;
-	padding: 8px;
-	font-size: 25px;
-	border-radius: 4px;
-	display: block;
-	color: grey;
-	border: 1px solid black;
-}
-
-.count{
-	color: black;
-	font-size: 25px;
-	padding-bottom: 1%;
-}
-
-.green{
-	background-color: #11a8ab;
-	width: 99.9%;
-	height: 100px;
-	border: 1px solid black;
-	margin-bottom: 180px;
-	border-radius: 4px;
+  background-color: #1f253d;
+  text-align: center;
+  margin: 0 auto;
+  width: 84%;
+  padding: 8px;
+  font-size: 25px;
+  border-radius: 4px;
+  display: block;
+  color: grey;
+  border: 1px solid black;
 }

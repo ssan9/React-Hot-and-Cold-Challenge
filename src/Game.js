@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import './Game.css';
+import "./Game.css";
 import Header from "./Header";
 import Feedback from "./Feedback";
 import GuessForm from "./GuessForm";
+
 import InfoSection from "./InfoSection";
 
 export default class Game extends React.Component {
@@ -14,17 +15,8 @@ export default class Game extends React.Component {
       guesses: [],
       correctAnswer: Math.round(Math.random() * 100) + 1
     };
-
     this.newGuess = this.newGuess.bind(this);
-    // this.changeFeedback = this.changeFeedback.bind(this);
-    // this.displayHelp = this.displayHelp.bind(this) this can be used in place of arrow functions below
   }
-
-  // changeFeedback(newValidationMessage) {
-  //   this.setState({
-  //     validationMessage: newValidationMessage
-  //   });
-  // }
 
   displayHelp(display) {
     this.setState({
@@ -33,27 +25,27 @@ export default class Game extends React.Component {
   }
 
   restartGame() {
-    this.setState ({
+    this.setState({
       guesses: [],
       feedback: "Make a guess!",
-      correctAnswer: Math.floor(Math.random()*100) + 1
+      correctAnswer: Math.floor(Math.random() * 100) + 1
     });
   }
 
   newGuess(newGuess) {
-    var guessesCopy = [...this.state.guesses]; //add a new guess in an array of old guesses
-    guessesCopy.push(newGuess);
-      // or -> guessCopy = [...this.state.guesses, newGuess]
+    var guessesCopy = [...this.state.guesses]; // copy the old guesses array
+    guessesCopy.push(newGuess); //add a new guess in the new guesses array
+    // or -> guessCopy = [...this.state.guesses, newGuess]
     const difference = Math.abs(newGuess - this.state.correctAnswer);
 
     let feedback;
-    if (difference >= 50) {
+    if (difference >= 40) {
       feedback = "You're Ice Cold...";
     } else if (difference >= 30) {
       feedback = "You're Cold...";
-    } else if (difference >= 10) {
+    } else if (difference >= 20) {
       feedback = "You're Warm.";
-    } else if (difference >= 1) {
+    } else if (difference >= 10) {
       feedback = "You're Hot!";
     } else {
       feedback = "You got it!";
@@ -68,20 +60,17 @@ export default class Game extends React.Component {
   render() {
     return (
       <div className="game">
-        <Header className="form-header" displayHelp={display => this.displayHelp(display)} 
-                restartGame={() => this.restartGame()}/>
-        <Feedback 
-          feedbackMessage={this.state.feedback}
+        <Header
+          displayHelp={display => this.displayHelp(display)}
+          restartGame={() => this.restartGame()}
         />
-        <GuessForm count={this.state.guesses.length}
-                   newGuess={this.newGuess}
-                   guesses={this.state.guesses} />
-                    
+
+        <Feedback feedbackMessage={this.state.feedback} />
+        <GuessForm newGuess={this.newGuess} guesses={this.state.guesses} />
 
         {this.state.displayHelp ? (
           <InfoSection displayHelp={display => this.displayHelp(display)} />
         ) : null}
-
       </div>
     );
   }

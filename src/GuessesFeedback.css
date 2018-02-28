@@ -1,0 +1,14 @@
+.count {
+  color: black;
+  font-size: 25px;
+  padding-bottom: 1%;
+}
+
+.green {
+  background-color: #11a8ab;
+  width: 99.9%;
+  height: 100px;
+  border: 1px solid black;
+  margin-bottom: 180px;
+  border-radius: 4px;
+}
