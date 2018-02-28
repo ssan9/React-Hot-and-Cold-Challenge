@@ -70,7 +70,7 @@ export default class Game extends React.Component {
       <div className="game">
         <Header className="form-header" displayHelp={display => this.displayHelp(display)} 
                 restartGame={() => this.restartGame()}/>
-        <Feedback className="feedback"
+        <Feedback 
           feedbackMessage={this.state.feedback}
         />
         <GuessForm count={this.state.guesses.length}
