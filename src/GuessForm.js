@@ -24,7 +24,7 @@ export default class GuessForm extends React.Component {
         className="guess-form"
         onSubmit={e => {
           e.preventDefault();
-          this.props.newGuess(this.state.guess);
+          this.props.newGuess(this.state.guess); //this.state because this is the parent component for guess. In stateful components props are paased as 'this.props'.
           this.setState({ guess: "" });
         }}
       >
@@ -47,8 +47,12 @@ export default class GuessForm extends React.Component {
           Guess
         </button>
 
-        <GuessesFeedback guesses={this.props.guesses} />
+        <GuessesFeedback guesses={this.props.guesses} /> 
       </form>
     );
   }
 }
+
+// We have passed the props from the parent component (Game) to the children
+// guesses are defined in parent component and we are passing it to children using props Eg, GuessFeedback guesses here and in GuessesFeedback, as props.guesses.length
+// GuessForm passes GuessFeedback component using props because it is not a parent component. 

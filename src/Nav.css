@@ -37,3 +37,6 @@ li button {
 	left: 90%; /*why i couldn't use float over here?*/
 }
 
+.status-link {
+	display: none;
+}

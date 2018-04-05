@@ -9,7 +9,8 @@ export default function Header(props) {
     <div className="form-header">
       <Nav
         displayHelp={props.displayHelp}
-        restartGame={props.restartGame} /*why*/
+        restartGame={props.restartGame} 
+        generateAuralUpdate={props.generateAuralUpdate}
       />
       <header className="header">
         <h1>HOT or COLD</h1>
